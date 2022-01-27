@@ -13,7 +13,7 @@ export default function Home() {
       password
     }
 
-    console.log(data)
+    console.log(data);
   }
 
   return (
