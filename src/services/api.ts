@@ -20,7 +20,7 @@ api.interceptors.response.use(response => {
     if (error.response.data?.code == 'token.expired') {
       //renova token
       cookies = parseCookies();
-      const { 'nextauth.refrashtoken': refreshToken } = cookies;
+      const { 'nextauth.refreshToken': refreshToken } = cookies;
       const originalConfig = error.config;
 
       if(!isRefreshing) {
@@ -36,7 +36,7 @@ api.interceptors.response.use(response => {
             path: '/',
           });
   
-          setCookie(undefined, 'nextauth.refrashtoken', response.data.refreshToken, {
+          setCookie(undefined, 'nextauth.refreshToken', response.data.refreshToken, {
             maxAge: 60 * 60 * 24 * 30, // 30 dias
             path: '/',
           });

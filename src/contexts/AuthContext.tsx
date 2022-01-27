@@ -28,7 +28,7 @@ export const AuthContext = createContext({} as AuthContextData);
 
 export function signOut() {
   destroyCookie(undefined, 'nextauth.token');
-  destroyCookie(undefined, 'nextauth.refrashtoken');
+  destroyCookie(undefined, 'nextauth.refreshToken');
 
   Router.push('/');
 }
@@ -67,7 +67,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         maxAge: 60 * 60 * 24 * 30, // 30 dias
         path: '/',
       });
-      setCookie(undefined, 'nextauth.refrashtoken', refreshToken, {
+      setCookie(undefined, 'nextauth.refreshToken', refreshToken, {
         maxAge: 60 * 60 * 24 * 30, // 30 dias
         path: '/',
       });
